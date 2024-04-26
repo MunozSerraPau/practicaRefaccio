@@ -1,9 +1,6 @@
 import java.io.File;
 import java.util.List;
 import java.util.Scanner;
-//hola
-//va be?¿?¿?¿?¿?¿-
-//alba?¿ghi---
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -58,14 +55,14 @@ public class Main {
         }
     }
     public static void calcEquacioSegongrau(double a, double b, double c) {
-        double D = b * b - 4 * a * c;
-        if (D > 0) {
+        double Discriminant = b * b - 4 * a * c;
+        if (Discriminant > 0) {
             double x1, x2;
-            x1 = (-b - Math.sqrt(D)) / (2 * a);
-            x2 = (-b + Math.sqrt(D)) / (2 * a);
+            x1 = (-b - Math.sqrt(Discriminant)) / (2 * a);
+            x2 = (-b + Math.sqrt(Discriminant)) / (2 * a);
             System.out.println("x1 = " + x1 + ", x2 = " + x2);
         }
-        else if (D == 0) {
+        else if (Discriminant == 0) {
             double x;
             x = -b / (2 * a);
             System.out.println("x = " + x);
