@@ -95,18 +95,19 @@ public class Main {
 
         if (Discriminant > 0) {
             double x1, x2;
-            x1 = calculOperacio2nG('-', a, b, Discriminant);
-            x2 = calculOperacio2nG('+', a, b, Discriminant);
-            System.out.println("x1 = " + x1 + ", x2 = " + x2);
+            x1 = calculOperacio2nGr('-', a, b, Discriminant);
+            x2 = calculOperacio2nGr('+', a, b, Discriminant);
+            System.out.println("Resposta numero 1 = " + x1 + ", Resposta numero 2 = " + x2);
         } else if (Discriminant == 0) {
             double x;
-            x = -b / (2 * a);
-            System.out.println("x = " + x);
+            x = calculOperacio2nGrSimple(a, b);
+
+            System.out.println("L'única resposta és = " + x);
         } else {
-            System.out.println("Equation has no roots");
+            System.out.println("L'equació no te cap resposta.");
         }
     }
-    public static double calculOperacio2nG (char t, double a, double b, double D) {
+    public static double calculOperacio2nGr (char t, double a, double b, double D) {
 
         if (t == '+') {
             return (-b + Math.sqrt(D)) / (2 * a);
@@ -114,6 +115,9 @@ public class Main {
             return (-b - Math.sqrt(D)) / (2 * a);
         }
         return 0;
+    }
+    public static double calculOperacio2nGrSimple(double a, double b) {
+        return -b / (2 * a);
     }
 
 
