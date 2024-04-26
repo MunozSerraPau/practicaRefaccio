@@ -1,6 +1,7 @@
 import java.io.File;
 import java.util.List;
 import java.util.Scanner;
+
 // PROVA Part_Pau
 //Prova
 public class Main {
@@ -93,7 +94,7 @@ public class Main {
 
     public static void calcEquacioSegongrau(double a, double b, double c) {
         double Discriminant = b * b - 4 * a * c;
-
+      
         if (Discriminant > 0) {
             double x1, x2;
             x1 = calculOperacio2nGr('-', a, b, Discriminant);
