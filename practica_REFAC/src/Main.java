@@ -3,8 +3,9 @@ import java.util.List;
 import java.util.Scanner;
 // PROVA Part_Pau
 public class Main {
+    public static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+
         String p = "Proves";
 
         int opcio;
@@ -51,27 +52,29 @@ public class Main {
     }
 
 
-    public static compararNum () {
+    public static void compararNum () {
         int num1 = obtenirNum();
         int num2 = obtenirNum();
         
         if (num1 == num2) {
-            System.out.println("iguals")
-        } else-if (max(num1,num2)) {
+            System.out.println("Els dos números son iguals.");
+        } else if (max(num1,num2)) {
             System.out.println("El numero gran és: " + num1);
         } else {
             System.out.println("El numero gran és: " + num2);
         }
     }
     public static int obtenirNum() {
+        int num;
+
         System.out.println("Introdueix un numero: ");
         try {
-            int num = scan.nextInt();
-            scan.nextLine;
-        } cath {
-            
+            num = scan.nextInt();
+            scan.nextLine();
+        } catch (Exception e) {
+            System.out.println("ERROR! Ha de ser un INT, se li ha assignat el valor 5.");
+            num = 5;
         }
-        
 
         return num;
     }
@@ -92,8 +95,8 @@ public class Main {
 
         if (Discriminant > 0) {
             double x1, x2;
-            x1 = (-b - Math.sqrt(Discriminant)) / (2 * a);
-            x2 = (-b + Math.sqrt(Discriminant)) / (2 * a);
+            x1 = calculOperacio2nG('-', a, b, Discriminant);
+            x2 = calculOperacio2nG('+', a, b, Discriminant);
             System.out.println("x1 = " + x1 + ", x2 = " + x2);
         } else if (Discriminant == 0) {
             double x;
@@ -102,6 +105,15 @@ public class Main {
         } else {
             System.out.println("Equation has no roots");
         }
+    }
+    public static double calculOperacio2nG (char t, double a, double b, double D) {
+
+        if (t == '+') {
+            return (-b + Math.sqrt(D)) / (2 * a);
+        } else if (t == '-') {
+            return (-b - Math.sqrt(D)) / (2 * a);
+        }
+        return 0;
     }
 
 
