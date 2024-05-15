@@ -2,8 +2,6 @@ import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
-// PROVA Part_Pau
-//Prova
 public class Main {
     public static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
@@ -90,8 +88,7 @@ public class Main {
         }
     }
 
-
-
+    //
     public static void calcEquacioSegongrau(double a, double b, double c) {
         double Discriminant = b * b - 4 * a * c;
       
@@ -156,6 +153,7 @@ public class Main {
             this.taxRate = taxRate;
         }
 
+        //No s'utilitza mai
         public double calculateTotalPrice() {
             double subtotal = 0.0;
             for (OrderLineItem item : lineItems) {
