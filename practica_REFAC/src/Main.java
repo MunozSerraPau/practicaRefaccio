@@ -1,4 +1,3 @@
-import java.io.File;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -6,50 +5,51 @@ import java.util.Scanner;
 public class Main {
     public static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
+        //No s'utilitza
         String p = "Proves";
 
-        int opcio;
+        //REFACT 11
+        String opcio;
         do {
             //REFACT 1
             menu();
             //
-            opcio = scan.nextInt();
-            scan.nextLine();
+            opcio = scan.nextLine();
             switch (opcio) {
-                case 1:
+                case "1":
                     //REFACT 2
                     compararNum();
                     //
                     break;
-                case 2:
+                case "2":
                     double a=2;
                     double b=3;
                     double c=1;
                     calcEquacioSegongrau(a, b, c);
                     break;
-                case 3:
+                case "3":
                     List<OrderLineItem> lineItems = null;
-                    //REFACT
-                    Order asd = new Order(lineItems, 5.5);
+                    //REFACT 9
+                    Order item = new Order(lineItems, 5.5);
                     //
                     break;
-                case 0:
+                case "0":
                     break;
                 default:
                     //REFACT 3
                     System.out.println("ATENCIÓ!!! \nHa de ser un valor entre 0 i 3");
                     //
             }
-        } while (opcio != 0);
+        } while (opcio.equals("0"));
     }
 
     //REFACT 1.1
     public static void menu() {
-        System.out.println("1. ");
-        System.out.println("2. ");
-        System.out.println("3. ");
-        System.out.println("4. ");
-        System.out.println("5. ");
+        System.out.println("1. Comparar dos números");
+        System.out.println("2. Càlcul equació de segon grau");
+        System.out.println("3. Calcular preu");
+        //REFACT 8
+        //
         System.out.println("0. Acabar");
     }
     //
@@ -58,7 +58,7 @@ public class Main {
     public static void compararNum () {
         int num1 = obtenirNum();
         int num2 = obtenirNum();
-        
+
         if (num1 == num2) {
             System.out.println("Els dos números son iguals.");
         } else if (max(num1,num2)) {
@@ -69,19 +69,17 @@ public class Main {
     }
 
     //REFACT 2.2
-    public static int obtenirNum() {
-        int num;
-
+    public static int obtenirNum() throws IllegalArgumentException{
         System.out.println("Introdueix un numero: ");
+        int num = 0;
         try {
             num = scan.nextInt();
             scan.nextLine();
 
         } catch (InputMismatchException e) {
-            System.out.println("ERROR! Ha de ser un INT, se li ha assignat el valor 5.");
-            num = 5;
+            System.out.println("ERROR: Has introduït malament un dels valors, torna-ho a intentar.");
+            System.exit(0);
         }
-
         return num;
     }
 
@@ -139,8 +137,7 @@ public class Main {
         return -b / (2 * a);
     }
 
-
-
+    //La clase Human no s'utilitza mai
     public static class Human {
         private String name;
         private String age;
