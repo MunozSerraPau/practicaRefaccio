@@ -126,12 +126,12 @@ public class Main {
 
     //REFACT 5.1 Tipus: Extracció de mètode
     //Aquesta és la nova funció amb la qual fem els càlculs necessaris per obtenir el valor de x1 i x2.
-    public static double calculOperacio2nGr (char t, double a, double b, double D) {
+    public static double calculOperacio2nGr (char t, double a, double b, double d) {
 
         if (t == '+') {
-            return (-b + Math.sqrt(D)) / (2 * a);
+            return (-b + Math.sqrt(d)) / (2 * a);
         } else if (t == '-') {
-            return (-b - Math.sqrt(D)) / (2 * a);
+            return (-b - Math.sqrt(d)) / (2 * a);
         }
         return 0;
     }
